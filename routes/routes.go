@@ -14,6 +14,7 @@ func HandleResquest() {
 	r := mux.NewRouter()
 	r.Use(middleware.ContentTypeMiddleware)
 	r.HandleFunc("/", controllers.Home)
+	r.HandleFunc("/adm", controllers.HomeAdm).Methods("Post")
 	r.HandleFunc("/api/personalidades", controllers.TodasPersonalidades).Methods("Get")
 	r.HandleFunc("/api/personalidades", controllers.CriaUmaNovaPersonalidade).Methods("Post")
 	r.HandleFunc("/api/personalidades/{id}", controllers.PersonalidadeUnica).Methods("Get")
